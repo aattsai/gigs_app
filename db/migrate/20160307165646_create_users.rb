@@ -7,6 +7,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :full_name
       t.string :bio
       t.float :ratings
+
+      t.timestamps null:false
     end
   end
 end

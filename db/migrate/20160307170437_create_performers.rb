@@ -9,6 +9,8 @@ class CreatePerformers < ActiveRecord::Migration
       t.string :instruments
       t.string :bio
       t.float :ratings
+
+      t.timestamps null:false
     end
   end
 end
