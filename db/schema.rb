@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307171555) do
+ActiveRecord::Schema.define(version: 20160307172051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "band_performers", force: :cascade do |t|
+    t.integer  "performer_id"
+    t.integer  "band_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "bands", force: :cascade do |t|
     t.string   "name",       null: false
@@ -35,14 +42,16 @@ ActiveRecord::Schema.define(version: 20160307171555) do
   end
 
   create_table "performers", force: :cascade do |t|
-    t.string "username",        null: false
-    t.string "password_digest", null: false
-    t.string "email",           null: false
-    t.string "full_name"
-    t.string "affiliates"
-    t.string "instruments"
-    t.string "bio"
-    t.float  "ratings"
+    t.string   "username",        null: false
+    t.string   "password_digest", null: false
+    t.string   "email",           null: false
+    t.string   "full_name"
+    t.string   "affiliates"
+    t.string   "instruments"
+    t.string   "bio"
+    t.float    "ratings"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "performers", ["username"], name: "index_performers_on_username", using: :btree
@@ -58,12 +67,14 @@ ActiveRecord::Schema.define(version: 20160307171555) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username",        null: false
-    t.string "password_digest", null: false
-    t.string "email",           null: false
-    t.string "full_name"
-    t.string "bio"
-    t.float  "ratings"
+    t.string   "username",        null: false
+    t.string   "password_digest", null: false
+    t.string   "email",           null: false
+    t.string   "full_name"
+    t.string   "bio"
+    t.float    "ratings"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "users", ["username"], name: "index_users_on_username", using: :btree
