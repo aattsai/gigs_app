@@ -78,10 +78,6 @@
     opacity: .5;
 }
 
-body > .grid {
-  height: 100%;
-}
-
 .column {
   max-width: 450px;
   margin: 0 auto;
@@ -98,4 +94,8 @@ body > .grid {
 
 .footer .seven.wide.column {
   text-align: center;
+}
+
+.usertype-box {
+  margin: 2rem !important;
 }

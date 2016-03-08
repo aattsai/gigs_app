@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'homepage#index'
+  get 'usertype' => 'homepage#usertype'
 
   resources :users
 
