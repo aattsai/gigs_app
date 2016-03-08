@@ -1,0 +1,41 @@
+<div class="ui middle aligned segment center aligned">
+  <div class="column">
+    <h2 class="ui black image header">
+      <div class="content">
+        Create a Free Gigs Account
+      </div>
+    </h2>
+    <%= form_for User.new, class:"ui large form" do |f| %>
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <i class="user icon"></i>
+            <%= f.text_field :username, placeholder: "Create a Username" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <i class="user icon"></i>
+            <%= f.text_field :full_name, placeholder: "Full Name" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <i class="mail icon"></i>
+            <%= f.text_field :email, placeholder: "E-mail" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <i class="lock icon"></i>
+            <%= f.password_field :password, placeholder: "Password" %>
+          </div>
+        </div>
+        <%= f.submit 'Sign Up', class: "ui large fluid gold submit button" %>
+      </div>
+    <% end %>
+    <div class="ui message">
+      Already has an account? <a ui-sref="login">Log-in</a>
+    </div>
+  </div>
+</div>
