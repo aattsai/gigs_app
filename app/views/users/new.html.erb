@@ -1,11 +1,18 @@
 <%= form_for User.new do |f| %>
-  <%= f.label :username%>
+  <%= f.label :full_name %>
+  <%= f.label :username %>
   <%= f.text_field :username %>
   <%= f.label :email %>
   <%= f.text_field :email %>
   <%= f.label :password %>
   <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
   <%= f.submit 'Sign Up'%>
 <% end %>
+
+
+    t.string :username, null:false, unique: true, index: true
+      t.string :password_digest, null: false
+      t.string :email, null: false, unique: true
+      t.string :full_name, null: false
+      t.text :bio
+      t.float :ratings

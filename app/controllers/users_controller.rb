@@ -10,13 +10,13 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:warning] = user.errors.full_messages.join(". ")
-      redirect_to register_path
+      redirect_to new_user_path
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :full_name, :password)
   end
 
 end
