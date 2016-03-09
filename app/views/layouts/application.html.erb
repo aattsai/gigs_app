@@ -27,6 +27,9 @@
   <% if logged_in? %>
     <div class="right item">
       <%= link_to 'Sign Out', user_logout_path %>
+      <% if user %>
+        <%= link_to 'Create Gigs', new_gig_path %>
+      <% end %>
     </div>
   <% else %>
     <div class="right item">
@@ -45,7 +48,7 @@
   <a class="toc item">
     <i class="sidebar icon"></i>
   </a>
-  <a href="#" class="item">
+  <a href="/gigs/" class="item">
     Discover
   </a>
   <a class="item">
