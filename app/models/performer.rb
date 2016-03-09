@@ -10,4 +10,14 @@ class Performer < ActiveRecord::Base
   has_many :gigs
   has_many :band_performers
   has_many :bands, through: :band_performers
+
+  def Performer.performer_login(params)
+    performer = find_by(username: params[:username])
+    if performer && performer.authenticate(params[:password])
+      return true
+    else
+      return false
+    end
+  end
+
 end
