@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email, null: false, unique: true
       t.string :full_name, null: false
       t.text :bio
-      t.float :ratings
+      t.float :rating
 
       t.timestamps null:false
     end
