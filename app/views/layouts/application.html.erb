@@ -29,7 +29,7 @@
       <% if user %>
         <%= link_to first_name(current_user.full_name).capitalize, user_path(current_user.id), class: "item"%>
       <% else %>
-        <%= link_to first_name(current_user.full_name), performer_path(current_user.id), class: "item" %>
+        <%= link_to first_name(current_user.full_name).capitalize, performer_path(current_user.id), class: "item" %>
       <% end %>
       <%= link_to 'Log Out', user_logout_path, class: "item" %>
     </div>
