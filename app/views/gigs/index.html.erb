@@ -1,0 +1,11 @@
+<h1> Gigs: </h1>
+<% @gigs.each do |gig| %>
+
+<h4><%= link_to gig.title, gig_path(gig.id) %></h4>
+
+  <% if gig.user_id == current_user.id %>
+    <%= link_to 'Edit', edit_gig_path(gig.id) %>
+    <%= link_to 'Delete', '/gigs/' + gig.id.to_s, method: 'delete' %>
+  <% end %>
+
+<% end %>

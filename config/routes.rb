@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :performers
+  resources :gigs
 
   get 'user/login' => 'sessions#new'
   post 'user/login' => 'sessions#create', as: 'sessions'
