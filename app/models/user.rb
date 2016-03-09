@@ -9,4 +9,13 @@ class User < ActiveRecord::Base
   has_many :ratings
   has_many :gigs
 
+  def User.user_login(params)
+    user = find_by(username: params[:username])
+    if user && user.authenticate(params[:password])
+      return true
+    else
+      return false
+    end
+  end
+
 end
