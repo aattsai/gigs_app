@@ -25,16 +25,17 @@ ActiveRecord::Schema.define(version: 20160307172051) do
 
   create_table "bands", force: :cascade do |t|
     t.string   "name",       null: false
+    t.text     "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "gigs", force: :cascade do |t|
     t.string   "title",        null: false
-    t.string   "description",  null: false
+    t.text     "description",  null: false
     t.string   "location",     null: false
     t.float    "price"
-    t.integer  "user_id"
+    t.integer  "user_id",      null: false
     t.integer  "performer_id"
     t.integer  "band_id"
     t.datetime "created_at",   null: false
@@ -45,10 +46,10 @@ ActiveRecord::Schema.define(version: 20160307172051) do
     t.string   "username",        null: false
     t.string   "password_digest", null: false
     t.string   "email",           null: false
-    t.string   "full_name"
+    t.string   "full_name",       null: false
     t.string   "affiliates"
     t.string   "instruments"
-    t.string   "bio"
+    t.text     "bio"
     t.float    "ratings"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -58,7 +59,7 @@ ActiveRecord::Schema.define(version: 20160307172051) do
 
   create_table "ratings", force: :cascade do |t|
     t.float    "value",        null: false
-    t.string   "comment"
+    t.text     "comment"
     t.integer  "user_id",      null: false
     t.integer  "performer_id"
     t.integer  "band_id"
@@ -70,8 +71,8 @@ ActiveRecord::Schema.define(version: 20160307172051) do
     t.string   "username",        null: false
     t.string   "password_digest", null: false
     t.string   "email",           null: false
-    t.string   "full_name"
-    t.string   "bio"
+    t.string   "full_name",       null: false
+    t.text     "bio"
     t.float    "ratings"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
