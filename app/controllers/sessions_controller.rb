@@ -7,27 +7,17 @@ class SessionsController < ApplicationController
   def create
     if params[:checkbox]
       if Performer.performer_login(params)
-        session[:performer_id] = performer.id
+        session[:performer_id] = Performer.find_by(username: params[:username]).id
         redirect_to root_path
       else
-        flash.now[:warning] = "Login failed. Please Try Again."
-        render :new
+        error_messages
       end
-      # performer = Performer.find_by(username: params[:username])
-      # if performer && performer.authenticate(params[:password])
-      #   session[:performer_id] = performer.id
-      #   redirect_to root_path
-      # else
-      #   flash.now[:warning] = "Login failed. Please Try Again."
-      #   render :new
-      # end
     else
       if User.user_login(params)
-        session[:user_id] = user.id
+        session[:user_id] = User.find_by(username: params[:username]).id
         redirect_to root_path
       else
-        flash.now[:warning] = "Login failed. Please Try Again."
-        render :new
+        error_messages
       end
     end
   end
@@ -35,6 +25,11 @@ class SessionsController < ApplicationController
   def destroy
     session.clear
     redirect_to root_path
+  end
+
+  def error_messages
+    flash.now[:warning] = "Login failed. Please Try Again."
+    render :new
   end
 
 end
