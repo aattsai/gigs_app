@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :performers
 
   get 'user/login' => 'sessions#new'
+  post 'user/login' => 'sessions#create', as: 'sessions'
   get 'user/logout' => 'sessions#destroy'
 
 
