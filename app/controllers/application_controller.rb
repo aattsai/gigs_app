@@ -7,11 +7,7 @@ class ApplicationController < ActionController::Base
   def current_user
     user = User.find_by(id: session[:user_id])
     performer = Performer.find_by(id: session[:performer_id])
-    if user
-      @current_user ||= user
-    else
-      @curent_user ||= performer
-    end
+    @current_user ||= user ? user : performer
   end
 
   def logged_in?
