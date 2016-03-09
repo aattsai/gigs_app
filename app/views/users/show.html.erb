@@ -1,0 +1,37 @@
+<div class="ui vertical stripe segment">
+  <div class="ui middle aligned stackable grid container">
+    <div class="row">
+      <div class="eight wide column">
+        <h3 class="ui header">
+          <%= current_user.full_name %>
+        </h3>
+        <p>
+          <b>Joined: </b><%= current_user.created_at.strftime("%b, %Y") %>
+        </p>
+        <p>
+          <b>Bio: </b>
+          <% if current_user.bio %>
+            <%= current_user.bio %>
+          <% else %>
+            tell us a little bit about yourself, we are curious!
+          <% end %>
+        </p>
+        <% if current_user.rating %>
+          <div class="ui rating view" data-rating=<%= current_user.rating.to_s %> data-max-rating="5"></div>
+        <% else %>
+          <% "Mr. " +current_user.last_name+ ", you have no ratings yet. " %>
+        <% end %>
+      </div>
+      <div class="six wide right floated center aligned column">
+        <div class='middle aligned container'>
+          <i class="massive spy icon"></i>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="center aligned column">
+        <a class="ui basic blue large button">Update Profile</a>
+      </div>
+    </div>
+  </div>
+</div>

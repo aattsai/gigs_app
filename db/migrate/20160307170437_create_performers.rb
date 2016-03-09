@@ -8,7 +8,7 @@ class CreatePerformers < ActiveRecord::Migration
       t.string :affiliates
       t.string :instruments
       t.text :bio
-      t.float :ratings
+      t.float :rating
 
       t.timestamps null:false
     end

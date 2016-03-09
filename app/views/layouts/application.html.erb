@@ -26,10 +26,12 @@
 <nav class="ui inverted menu">
   <% if logged_in? %>
     <div class="right item">
-      <%= link_to 'Sign Out', user_logout_path %>
       <% if user %>
-        <%= link_to 'Create Gigs', new_gig_path %>
+        <%= link_to first_name(current_user.full_name).capitalize, user_path(current_user.id), class: "item"%>
+      <% else %>
+        <%= link_to first_name(current_user.full_name), performer_path(current_user.id), class: "item" %>
       <% end %>
+      <%= link_to 'Log Out', user_logout_path, class: "item" %>
     </div>
   <% else %>
     <div class="right item">

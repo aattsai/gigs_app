@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require semantic-ui
 //= require_tree .
+
+$(document).ready(function(){
+  $('.ui.rating.view')
+    .rating("disable");
+});
