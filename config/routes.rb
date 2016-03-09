@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'usertype' => 'homepage#usertype'
 
   resources :users
+  resources :performers
 
   get 'user/login' => 'sessions#new'
   get 'user/logout' => 'sessions#destroy'
