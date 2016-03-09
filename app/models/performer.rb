@@ -12,7 +12,7 @@ class Performer < ActiveRecord::Base
   has_many :bands, through: :band_performers
 
   def Performer.performer_login(params)
-    performer = find_by(username: params[:username])
+    performer = find_by(email: params[:email])
     if performer && performer.authenticate(params[:password])
       return true
     else

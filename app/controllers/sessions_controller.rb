@@ -7,14 +7,14 @@ class SessionsController < ApplicationController
   def create
     if params[:checkbox]
       if Performer.performer_login(params)
-        session[:performer_id] = Performer.find_by(username: params[:username]).id
+        session[:performer_id] = Performer.find_by(email: params[:email]).id
         redirect_to root_path
       else
         error_messages
       end
     else
       if User.user_login(params)
-        session[:user_id] = User.find_by(username: params[:username]).id
+        session[:user_id] = User.find_by(email: params[:email]).id
         redirect_to root_path
       else
         error_messages
