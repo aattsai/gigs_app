@@ -57,7 +57,11 @@
   <a class="toc item">
     <i class="sidebar icon"></i>
   </a>
+  <% if user %>
+  <a href="/performers/" class="item">
+  <% else %>
   <a href="/gigs/" class="item">
+  <% end %>
     Discover
   </a>
   <a class="item">

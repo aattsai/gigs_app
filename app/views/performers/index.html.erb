@@ -1,0 +1,26 @@
+<div class="ui vertical stripe segment">
+  <div class="ui left aligned grid container performer-grid">
+    <div class="ten wide column">
+      <h3 class="ui header">
+        Performers:
+      </h3>
+      <% @performers.each do |performer| %>
+      <div class="row">
+        <h4><%= full_name(performer.full_name) %>
+        </h4>
+        <p><%= performer.instruments %></p>
+        <p><%= performer.affiliates %></p>
+        <% if current_user.rating %>
+          <div class="ui rating view" data-rating=<%= current_user.rating.to_s %> data-max-rating="5"></div>
+        <% else %>
+          <div class="ui rating view" data-rating="0" data-max-rating="5"></div>
+        <% end %>
+        <p><%= performer.bio %></p>
+      </div>
+      <% end %>
+    </div>
+    <div class="four wide olive column">
+      hello world
+    </div>
+  </div>
+</div>
