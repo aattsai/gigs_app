@@ -33,7 +33,14 @@ ActiveRecord::Schema.define(version: 20160307172051) do
   create_table "gigs", force: :cascade do |t|
     t.string   "title",        null: false
     t.text     "description",  null: false
-    t.string   "location",     null: false
+    t.string   "venue",        null: false
+    t.string   "address",      null: false
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "zipcode",      null: false
+    t.date     "date",         null: false
+    t.time     "time",         null: false
     t.float    "price"
     t.integer  "user_id",      null: false
     t.integer  "performer_id"
@@ -43,19 +50,17 @@ ActiveRecord::Schema.define(version: 20160307172051) do
   end
 
   create_table "performers", force: :cascade do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
     t.string   "email",           null: false
+    t.string   "password_digest", null: false
     t.string   "full_name",       null: false
     t.string   "affiliates"
     t.string   "instruments"
     t.text     "bio"
+    t.string   "location"
     t.float    "rating"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
-
-  add_index "performers", ["username"], name: "index_performers_on_username", using: :btree
 
   create_table "ratings", force: :cascade do |t|
     t.float    "value",        null: false
@@ -68,16 +73,13 @@ ActiveRecord::Schema.define(version: 20160307172051) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
     t.string   "email",           null: false
+    t.string   "password_digest", null: false
     t.string   "full_name",       null: false
     t.text     "bio"
     t.float    "rating"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
-
-  add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
 end
