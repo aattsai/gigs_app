@@ -7,8 +7,8 @@
         <p><%= gig.location %></p>
         <p>$<%= gig.price %></p>
         <% if user && gig.user_id == current_user.id %>
-            <%= link_to 'Edit', edit_gig_path(gig.id) %>
-            <%= link_to 'Delete', '/gigs/' + gig.id.to_s, method: 'delete' %>
+          <%= link_to 'Edit', edit_gig_path(gig.id) %>
+          <%= link_to 'Delete', '/gigs/' + gig.id.to_s, method: 'delete' %>
         <% end %>
       <div class="ui section divider"></div>
       </div>

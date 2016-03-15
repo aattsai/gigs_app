@@ -1,10 +1,18 @@
 <div class="ui vertical stripe segment">
   <div class="ui left aligned grid container performer-grid">
     <div class="ten wide column">
-      <h1><%= @gig.title %></h1>
-      <h2><%= @gig.location %></h2>
-      <h3>$<%= @gig.price %></h3>
-      <p><%= simple_format(@gig.description) %></p>
+      <div class="row">
+        <h1><%= @gig.title %></h1>
+        <h2><%= @gig.location %></h2>
+        <h3>$<%= @gig.price %></h3>
+        <p><%= simple_format(@gig.description) %></p>
+      </div>
+      <div class="row">
+        <% if user && @gig.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_gig_path(@gig.id), class: "ui small basic gray button" %>
+          <%= link_to 'Delete', '/gigs/' + @gig.id.to_s, method: 'delete', class: "ui small basic red button" %>
+        <% end %>
+      </div>
     </div>
     <div class="four wide coltrane column">
       <h4>Ads Go HERE</h4>
