@@ -10,12 +10,6 @@
         <div class="field">
           <div class="ui fluid left icon input">
             <i class="user icon"></i>
-            <%= f.text_field :username, value: @performer.username %>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui fluid left icon input">
-            <i class="user icon"></i>
             <%= f.text_field :full_name, value: @performer.full_name %>
           </div>
         </div>
@@ -29,6 +23,12 @@
           <div class="ui fluid left icon input">
             <i class="lock icon"></i>
             <%= f.password_field :password, value: @performer.password %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <i class="world icon"></i>
+            <%= f.text_field :location, placeholder: "Location" %>
           </div>
         </div>
         <div class="field">

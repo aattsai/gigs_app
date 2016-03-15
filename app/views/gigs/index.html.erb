@@ -4,7 +4,7 @@
       <% @gigs.each do |gig| %>
       <div class="row">
         <h4><%= link_to gig.title, gig_path(gig.id) %></h4>
-        <p><%= gig.location %></p>
+        <p><%= gig.venue %></p>
         <p>$<%= gig.price %></p>
         <% if user && gig.user_id == current_user.id %>
           <%= link_to 'Edit', edit_gig_path(gig.id) %>

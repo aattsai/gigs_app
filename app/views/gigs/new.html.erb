@@ -13,12 +13,32 @@
         </div>
         <div class="field">
           <div class="ui fluid left icon input">
-            <%= f.text_field :location, rows: '5', placeholder: "Location" %>
+            <%= f.text_field :venue, placeholder: "Venue" %>
           </div>
         </div>
         <div class="field">
           <div class="ui fluid left icon input">
-            <%= f.number_field :price, placeholder: "Price" %>
+            <%= f.text_field :address, placeholder: "Address" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <%= f.text_field :zipcode, placeholder: "Zip Code" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <%= f.date_field :date %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <%= f.time_field :time %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <%= f.number_field :price, placeholder: "Quote" %>
           </div>
         </div>
         <div class="ui form">

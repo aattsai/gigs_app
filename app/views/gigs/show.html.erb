@@ -3,8 +3,8 @@
     <div class="ten wide column">
       <div class="row">
         <h1><%= @gig.title %></h1>
-        <h2><%= @gig.location %></h2>
-        <h3>$<%= @gig.price %></h3>
+        <h2><%= @gig.venue %></h2>
+        <h3>$<%= number_with_precision(@gig.price, :precision => 2) %></h3>
         <p><%= simple_format(@gig.description) %></p>
       </div>
       <div class="row">
