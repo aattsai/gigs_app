@@ -25,7 +25,7 @@
       <div class="row">
         <h4>Created gigs:</h4>
         <% current_user.gigs.each_with_index do |gig, index| %>
-          <p><%= index + 1 %>. <%= gig.title %><br>
+          <p><%= index + 1 %>. <%= link_to gig.title, gig_path(gig.id) %><br>
           created <%= time_ago_in_words(gig.created_at) %> ago</p>
 
         <% end %>
