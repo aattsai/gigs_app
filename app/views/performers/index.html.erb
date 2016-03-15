@@ -1,9 +1,6 @@
 <div class="ui vertical stripe segment">
   <div class="ui left aligned grid container performer-grid">
     <div class="ten wide column">
-      <h3 class="ui header">
-        Performers:
-      </h3>
       <% @performers.each do |performer| %>
       <div class="row">
         <h4><%= full_name(performer.full_name) %>
@@ -16,6 +13,7 @@
           <div class="ui rating view" data-rating="0" data-max-rating="5"></div>
         <% end %>
         <p><%= performer.bio %></p>
+        <div class="ui section divider"></div>
       </div>
       <% end %>
     </div>
