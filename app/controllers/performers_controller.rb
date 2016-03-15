@@ -36,7 +36,7 @@ class PerformersController < ApplicationController
 
   private
   def performer_params
-    params.require(:performer).permit(:username, :email, :full_name, :password, :affiliates, :instruments, :bio)
+    params.require(:performer).permit(:email, :location, :full_name, :password, :affiliates, :instruments, :bio)
   end
 
 end
