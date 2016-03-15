@@ -16,11 +16,20 @@
             tell us a little bit about yourself, we are curious!
           <% end %>
         </p>
+        <div class="ui section divider"></div>
         <% if current_user.rating %>
           <div class="ui rating view" data-rating=<%= current_user.rating.to_s %> data-max-rating="5"></div>
         <% else %>
           <% "Mr. " +last_name(current_user.full_name)+ ", you have no ratings yet. " %>
         <% end %>
+      <div class="row">
+        <h4>Created gigs:</h4>
+        <% current_user.gigs.each_with_index do |gig, index| %>
+          <p><%= index + 1 %>. <%= gig.title %><br>
+          created <%= time_ago_in_words(gig.created_at) %> ago</p>
+
+        <% end %>
+      </div>
       </div>
       <div class="six wide right floated center aligned column">
         <div class='middle aligned container'>
@@ -30,7 +39,7 @@
     </div>
     <div class="row">
       <div class="center aligned column">
-        <%= link_to "Update Profile", edit_user_path(current_user.id), class:"ui basic blue large button" %>
+        <%= link_to "Update Profile", edit_user_path(current_user.id), class:"ui basic blue medium button" %>
       </div>
     </div>
   </div>
