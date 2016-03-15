@@ -1,0 +1,57 @@
+<div class="ui middle aligned segment center aligned">
+  <div class="column">
+    <h2 class="ui black image header">
+      <div class="content">
+        Update your performer profile
+      </div>
+    </h2>
+    <%= form_for @performer, class:"ui large form" do |f| %>
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <i class="user icon"></i>
+            <%= f.text_field :username, value: @performer.username %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <i class="user icon"></i>
+            <%= f.text_field :full_name, value: @performer.full_name %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <i class="mail icon"></i>
+            <%= f.text_field :email, value: @performer.email %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <i class="lock icon"></i>
+            <%= f.password_field :password, value: @performer.password %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <i class="play icon"></i>
+            <%= f.text_field :instruments, placeholder: "Instruments" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <i class="student icon"></i>
+            <%= f.text_field :affiliates, placeholder: "Affiliates" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <%= f.text_area :bio, placeholder: "Biography", rows: '10', cols: "60" %>
+          </div>
+        </div>
+        <div class="sign-up-button">
+          <%= f.submit 'Update', class: "ui large fluid basic gray submit button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -18,12 +18,25 @@ class PerformersController < ApplicationController
     end
   end
 
+  def edit
+    @performer = Performer.find(params[:id])
+  end
+
   def show
+  end
+
+  def update
+    performer = Performer.find(params[:id])
+    if performer.update_attributes(performer_params)
+      redirect_to performer_path(current_user.id)
+    else
+      render :edit
+    end
   end
 
   private
   def performer_params
-    params.require(:performer).permit(:username, :email, :full_name, :password)
+    params.require(:performer).permit(:username, :email, :full_name, :password, :affiliates, :instruments, :bio)
   end
 
 end
