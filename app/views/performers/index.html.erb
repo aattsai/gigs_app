@@ -6,6 +6,7 @@
         <h4><%= full_name(performer.full_name) %>
         </h4>
         <p><%= performer.instruments %></p>
+        <p><%= performer.location %></p>
         <p><%= performer.affiliates %></p>
         <% if current_user.rating %>
           <div class="ui rating view" data-rating=<%= current_user.rating.to_s %> data-max-rating="5"></div>
