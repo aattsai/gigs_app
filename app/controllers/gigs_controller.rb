@@ -10,6 +10,8 @@ class GigsController < ApplicationController
   def create
     user = User.find(session[:user_id])
     gig = user.gigs.new(gig_params)
+    zip = ZipCodes.identify(gig.zipcode.to_s)
+    gig.update_attributes(state: zip[:state_code], city: zip[:city])
     if gig.save
       redirect_to gig_path(gig.id)
     else
@@ -27,7 +29,10 @@ class GigsController < ApplicationController
 
   def update
     gig = Gig.find(params[:id])
+
     if gig.update_attributes(gig_params)
+      zip = ZipCodes.identify(gig.zipcode.to_s)
+      gig.update_attributes(state: zip[:state_code], city: zip[:city])
       redirect_to gig_path(gig.id)
     else
       render :edit
