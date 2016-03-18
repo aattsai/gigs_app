@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require semantic-ui
+//= require private_pub
 //= require_tree .
 
 $(document).ready(function(){

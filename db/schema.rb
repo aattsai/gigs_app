@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307172051) do
+ActiveRecord::Schema.define(version: 20160318153700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 20160307172051) do
     t.text     "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "user_id",      null: false
+    t.integer  "performer_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "gigs", force: :cascade do |t|
@@ -47,6 +54,15 @@ ActiveRecord::Schema.define(version: 20160307172051) do
     t.integer  "band_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "content",         null: false
+    t.integer  "user_id"
+    t.integer  "performer_id"
+    t.integer  "conversation_id", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "performers", force: :cascade do |t|
