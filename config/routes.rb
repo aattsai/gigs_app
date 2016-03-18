@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :users
   resources :performers
   resources :gigs
-
+  post '/conversations', to: 'conversations#create', as: 'conversation_create'
+  resources :conversations, except: [:create] do
+    resources :messages
+  end
+  
   get 'user/login' => 'sessions#new'
   post 'user/login' => 'sessions#create', as: 'sessions'
   get 'user/logout' => 'sessions#destroy'

@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   has_many :ratings
   has_many :gigs
+  has_many :conversations
+  has_many :messages
 
   def User.user_login(params)
     user = find_by(email: params[:email])

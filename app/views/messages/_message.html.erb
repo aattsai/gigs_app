@@ -1,0 +1,18 @@
+<% if message.content %>
+  <% if message.user_id %>
+    <% user = User.find(message.user_id) %>
+  <% else %>
+    <% user = Performer.find(message.performer_id) %>
+  <% end %>
+ <div class=”item”>
+  <div class=”content”>
+   <div class=”header”><strong><%= user.full_name %></strong>     <%= message.created_at %></div>
+    <div class=”list”>
+     <div class=”item”>
+      <i class=”right triangle icon”></i>
+     <h4 class="msg"> <%= message.content %> </h4>
+    </div>
+  </div>
+ </div>
+</div>
+<% end %>

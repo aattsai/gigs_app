@@ -8,6 +8,7 @@
         <h3>$<%= number_with_precision(@gig.price, :precision => 2) %></h3>
         <p><%= simple_format(@gig.description) %></p>
       </div>
+      <%= link_to 'Send message', conversation_create_path(@gig.user.id), method: :post %>
       <div class="row">
         <% if user && @gig.user_id == current_user.id %>
           <%= link_to 'Edit', edit_gig_path(@gig.id), class: "ui small basic gray button" %>
