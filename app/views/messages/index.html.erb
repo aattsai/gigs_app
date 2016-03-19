@@ -2,7 +2,7 @@
  <%= link_to "Show Previous", "?m=all" %>
 <% end %>
 <div id= "chat" class= "ui segment">
-  <%= render @messages %>
+  <%= render partial: 'message', locals: {messages: @messages} %>
 </div>
 
 <section id='form'>
