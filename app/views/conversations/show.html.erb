@@ -5,16 +5,13 @@
     <% end %>
 </div>
 
-<div class="chatboxinput">
-    <%= form_for([@conversation, Message.new], :remote => true,
-    :html => {id: "conversation_form_#{@conversation.id}"}) do |f| %>
-    <%= f.text_area :content, class: "chatboxtextarea", 
-       "data-cid" => @conversation.id %>
-    <div class="chat-form-btns">    
-         <%= f.submit "send", class: "btn btn-
-         primary btn-sm btn-submit"%>
+<div>
+  <%= form_for([@conversation, Message.new], :remote => true,
+  :html => {id: "conversation_form_#{@conversation.id}"}) do |f| %>
+    <%= f.text_area :content, "data-cid" => @conversation.id %>
+    <div>    
+      <%= f.submit "Send" %>
     </div>
   <% end %>
 </div>
 <%= subscribe_to "/messages/private/#{session[:username]}" %>
-

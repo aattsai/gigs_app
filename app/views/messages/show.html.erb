@@ -1,23 +1,20 @@
-<div class="chatboxcontent">
-    <% if @messages.any? %>
-        <% @messages.each do |message| %>
-            <%= message.content %>
-        <% end %>
+<div>
+  <% if @messages.any? %>
+    <% @messages.each do |message| %>
+      <%= message.content %>
     <% end %>
+  <% end %>
 </div>
 
-<div class="chatboxinput">
-    <%= form_for([@conversation, Message.new], :remote => true, 
-    :html => {id: "conversation_form_#{@conversation.id}"}) do |f| %>
-    <%= f.text_area :content, class: "chatboxtextarea", 
-       "data-cid" => @conversation.id %>
-    <div class="chat-form-btns">    
-         <%= f.submit "send", class: "btn btn-
-         primary btn-sm btn-submit"%>
-        <%= f.submit "New Title!", class: "btn btn-             
-         success btn-sm btn-new-title"%>
+<div>
+  <%= form_for([@conversation, Message.new], :remote => true, 
+  :html => {id: "conversation_form_#{@conversation.id}"}) do |f| %>
+    <%= f.text_area :content, "data-cid" => @conversation.id %>
+    <div>    
+      <%= f.submit "Send" %>
     </div>
   <% end %>
 </div>
+
 <%= subscribe_to "/messages/private/#{session[:username]}" %>
 
