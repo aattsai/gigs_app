@@ -1,7 +1,6 @@
-<h2>Message to: <b><%= @conversation.user.full_name %></b></h2>
 <div class="chatboxcontent">
     <% if @messages.any? %>
-        <%= render @messages %>
+        <%= render partial: 'messages/_message', locals: {messages: @messages} %>
     <% end %>
 </div>
 
