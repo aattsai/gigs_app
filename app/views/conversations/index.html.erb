@@ -8,7 +8,7 @@
     <div class=”item”>
       <% @conversations.each do |conversation| %>
         <% if conversation.user_id == current_user.id || conversation.performer_id == current_user.id %>
-          Conversation from: <%= conversation.performer.email %>
+          Conversation from: <%= link_to conversation.performer.email, conversation_messages_path(conversation.id) %>
           <div class='convo-row'>
           </div>
         <% end %>

@@ -1,3 +1,4 @@
+<h2>Message to: <b><%= @conversation.user.full_name %></b></h2>
 <div class="chatboxcontent">
     <% if @messages.any? %>
         <%= render @messages %>
@@ -5,7 +6,7 @@
 </div>
 
 <div class="chatboxinput">
-    <%= form_for([@conversation, Message.new], :remote => true, 
+    <%= form_for([@conversation, Message.new], :remote => true,
     :html => {id: "conversation_form_#{@conversation.id}"}) do |f| %>
     <%= f.text_area :content, class: "chatboxtextarea", 
        "data-cid" => @conversation.id %>
