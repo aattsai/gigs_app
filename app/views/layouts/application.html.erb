@@ -37,6 +37,7 @@
             <%= link_to "Create Gigs", new_gig_path, class: "item" %>
           <% else %>
             <%= link_to "Profile", performer_path(current_user.id), class: "item" %>
+            <%= link_to 'Messages', conversations_path, class: "item" %>
           <% end %>
           <%= link_to 'Log Out', user_logout_path, class: "item" %>
         </div>

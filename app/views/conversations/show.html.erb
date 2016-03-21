@@ -5,7 +5,7 @@
         <%= render partial: 'messages/_message', locals: {messages: @messages} %>
       <% end %>
     </div>
-
+<h1>Send a message to: <%= @conversation.user.full_name %></h1>
     <div>
       <%= form_for([@conversation, Message.new], :remote => true, class: "ui large form", :html => {id: "conversation_form_#{@conversation.id}"}) do |f| %>
         <div class="field">
