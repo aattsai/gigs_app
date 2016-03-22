@@ -1,0 +1,16 @@
+<h1>Create a band</h1>
+
+<%= form_for Band.new do |f| %>
+  <%= f.label :title %>
+  <div>
+  <%= f.text_field :name, required: true %>
+  </div>
+  <%= f.label :biography %>
+  <div>
+  <%= f.text_area :bio, rows: '5' %>
+  </div>
+  <%= f.submit %>
+<% end %>
+<% if @error_message %>
+  <% @error_message %>
+<% end %>

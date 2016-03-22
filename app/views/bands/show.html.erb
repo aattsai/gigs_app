@@ -1,0 +1,7 @@
+<h1><%= @band.name %></h1>
+
+<h4>Band creator: <%= @band.performer.full_name %></h4>
+<div>
+  <h3>Biography:</h3>
+  <p><%= simple_format(@band.bio) %></p>
+</div>

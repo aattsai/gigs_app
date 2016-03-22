@@ -8,9 +8,9 @@ class Performer < ActiveRecord::Base
   has_many :ratings
   has_many :gigs
   has_many :band_performers
-  has_many :bands, through: :band_performers
   has_many :conversations
   has_many :messages
+  has_one :band
 
   def Performer.performer_login(params)
     performer = find_by(email: params[:email])

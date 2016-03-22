@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :conversations, except: [:create] do
     resources :messages
   end
+  resources :bands, only: [:create, :new, :show]
   
   get 'user/login' => 'sessions#new'
   post 'user/login' => 'sessions#create', as: 'sessions'
