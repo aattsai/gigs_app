@@ -1,20 +1,25 @@
-<section id='form'>
-<div class=”ui segment”>
-  <h1>Mailbox</h1>
-  <% if @conversations.length == 0 %>
-    <h4>You have an empty mailbox.</h4>
-  <% else %>
-  <div class=”ui list”>
-    <div class=”item”>
+<section id="form">
+  <div class="ui segment">
+    <h1>Mailbox</h1>
+    <% if @conversations.length == 0 %>
+      <h4>You have an empty mailbox.</h4>
+    <% else %>
+    <div class="ui relaxed divided list">
       <% @conversations.each do |conversation| %>
+      <div class="item">
         <% if conversation.user_id == current_user.id || conversation.performer_id == current_user.id %>
-          Conversation from: <%= link_to conversation.performer.email, conversation_messages_path(conversation.id) %>
-          <div class='convo-row'>
+        <div class="content">
+          <%= link_to conversation.performer.email, conversation_messages_path(conversation.id), class: "header" %>
+          <div class="description">
+            <%= "#{time_ago_in_words(conversation.updated_at)} ago" %>
           </div>
+        </div>
+        <div class='convo-row'>
+        </div>
         <% end %>
+      </div>
       <% end %>
-     </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
 </section>

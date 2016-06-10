@@ -1,26 +1,24 @@
-<% if @over_ten %>
-  <%= link_to "Show Previous", "?m=all" %>
-<% end %>
-<div>
-  <%= render partial: 'message', locals: {messages: @messages} %>
+<div class="ui container">
+  <div class="ui segments">
+  <div id="chat" class="ui segment">
+  <% if @messages %>
+    <% @messages.each do |message| %>
+      <%= render partial: 'message', locals: {message:message} %>
+    <% end %>
+  <% end %>
+  </div>
+
+  <section class="ui segment">
+    <h3>Reply</h3>
+    <%= form_for [@conversation, @message], remote: true, html: {class: 'ui reply form'} do |f| %>
+      <div class="field">
+        <%= f.text_area :content, class: 'form-control' %>
+        <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
+      </div>
+     <%= f.submit 'Submit', :class => "ui primary submit right floated button" %>
+    <% end %>
+  <%= link_to 'Back to Inbox', conversations_path, class: "ui secondary submit button" %>
+  </section>
+  <%= subscribe_to conversation_messages_path(@conversation) %>
+  </div>
 </div>
-
-<section>
-  <h3>Send a message</h3>
-  <%= form_for [@conversation, @message], remote: true, html: {class: 'ui reply form'} do |f| %>
-  <ul>
-    <li>
-      <%= f.text_area :content, class: 'form-control' %>
-    </li>
-    <li>
-      <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
-    </li>
-    <li>
-     <%= f.submit 'Add Reply'%>
-    </li>
-  </ul>
-<% end %>
-
-<%= link_to 'Back to Inbox', conversations_path %>
-</section>
-<%= subscribe_to conversation_messages_path(@conversation) %>

@@ -1,14 +1,32 @@
-<% messages.each do |message| %>
-  <% if message.content %>
-    <% if message.user_id %>
-      <% user = User.find(message.user_id) %>
-    <% else %>
-      <% user = Performer.find(message.performer_id) %>
+<div class="ui minimal comments">
+    <% if message.content %>
+      <% if message.user_id %>
+        <% user = User.find(message.user_id) %>
+      <% else %>
+        <% user = Performer.find(message.performer_id) %>
+      <% end %>
+      <div class="comment">
+        <div class="content">
+        <% if user.class == User %>
+          <a class="author"><strong>
+            <%= user.full_name %>
+            <i class="small user icon"></i>
+          </strong></a>
+        <% else %>
+          <a class="author"><strong>
+            <%= user.full_name %>
+          <i class="small sound icon"></i>
+          </strong></a>
+        <% end %>
+          <div class="metadata">
+            <span class="date">
+              
+            </span>
+          </div>
+          <div class="text">
+            <%= message.content %>
+          </div>
+        </div>
+      </div>
     <% end %>
-    <div>
-    <strong><%= user.full_name %></strong>
-    <%= message.created_at %></div>
-      <h4> <%= message.content %> </h4>
-  <% end %>
-<% end %>
-
+</div>

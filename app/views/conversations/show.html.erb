@@ -1,21 +1,17 @@
 <div class="ui middle aligned segment center aligned">
   <div class="column">
-    <div class="chatboxcontent">
+    <div id="chat">
       <% if @messages.any? %>
         <%= render partial: 'messages/_message', locals: {messages: @messages} %>
       <% end %>
     </div>
-<h1>Send a message to: <%= @conversation.user.full_name %></h1>
-    <div>
-      <%= form_for([@conversation, Message.new], :remote => true, class: "ui large form", :html => {id: "conversation_form_#{@conversation.id}"}) do |f| %>
-        <div class="field">
-          <%= f.text_area :content, "data-cid" => @conversation.id %>
+  <h1>Send a message to: <%= @conversation.user.full_name %></h1>
+      <%= form_for([@conversation, Message.new], :remote => true, :html => {id: "conversation_form_#{@conversation.id}", class: 'ui reply form'}) do |f| %>
+        <div class="content">
+          <%= f.text_area :content, class: 'content form-control', "data-cid" => @conversation.id, :required => true %>
         </div>
-        <div>
-          <%= f.submit "Send", class:"ui basic small green button" %>
-        </div>
+          <%= f.submit "Send", class:"ui secondary button" %>
       <% end %>
-    </div>
-    <%= subscribe_to "/messages/private/#{session[:username]}" %>
+    <%= subscribe_to conversation_messages_path(@conversation.id) %>
   </div>
 </div>

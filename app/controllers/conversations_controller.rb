@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   def index
-    @conversations = Conversation.where(user: current_user)
+    @conversations = Conversation.where(user: current_user).order('created_at DESC')
   end
   
   def create
