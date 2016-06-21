@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   has_many :conversations
   has_many :messages
 
+  mount_uploader :avatar, AvatarUploader
+
+
   def User.user_login(params)
     user = find_by(email: params[:email])
     if user && user.authenticate(params[:password])

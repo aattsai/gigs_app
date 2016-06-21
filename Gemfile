@@ -33,6 +33,10 @@ gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# used for images
+gem 'carrierwave'
+gem 'mini_magick'
+
 #Private pub
 gem "private_pub"
 gem "thin"

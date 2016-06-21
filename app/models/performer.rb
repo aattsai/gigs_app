@@ -12,6 +12,8 @@ class Performer < ActiveRecord::Base
   has_many :messages
   has_one :band
 
+  mount_uploader :avatar, AvatarUploader
+
   def Performer.performer_login(params)
     performer = find_by(email: params[:email])
     if performer && performer.authenticate(params[:password])
