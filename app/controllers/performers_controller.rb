@@ -9,6 +9,7 @@ class PerformersController < ApplicationController
 
   def create
     performer = Performer.new(performer_params)
+    performer.avatar = params[:avatar]
     if performer.save
       session[:performer_id] = performer.id
       redirect_to root_path
@@ -36,7 +37,7 @@ class PerformersController < ApplicationController
 
   private
   def performer_params
-    params.require(:performer).permit(:email, :location, :full_name, :password, :affiliates, :instruments, :bio)
+    params.require(:performer).permit(:email, :location, :full_name, :password, :affiliates, :instruments, :bio, :avatar)
   end
 
 end

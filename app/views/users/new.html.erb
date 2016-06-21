@@ -25,6 +25,12 @@
             <%= f.password_field :password, placeholder: "Password" %>
           </div>
         </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <i class="lock icon"></i>
+            <%= f.file_field :avatar %>
+          </div>
+        </div>
         <div class="sign-up-button">
           <%= f.submit 'Sign Up', class: "ui large fluid basic gray submit button" %>
         </div>

@@ -48,6 +48,11 @@
             <%= f.text_area :bio, placeholder: "Biography", rows: '10', cols: "60" %>
           </div>
         </div>
+        <div class="field">
+          <div class="ui fluid left icon input">
+            <%= f.file_field :avatar %>
+          </div>
+        </div>
         <div class="sign-up-button">
           <%= f.submit 'Sign up', class: "ui large fluid basic gray submit button" %>
         </div>

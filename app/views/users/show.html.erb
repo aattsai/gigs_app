@@ -27,13 +27,12 @@
         <% current_user.gigs.each_with_index do |gig, index| %>
           <p><%= index + 1 %>. <%= link_to gig.title, gig_path(gig.id) %><br>
           created <%= time_ago_in_words(gig.created_at) %> ago</p>
-
         <% end %>
       </div>
       </div>
       <div class="six wide right floated center aligned column">
         <div class='middle aligned container'>
-          <i class="massive spy icon"></i>
+          <%= image_tag(current_user.avatar.url, width: '50%', height: '50%') %>
         </div>
       </div>
     </div>
