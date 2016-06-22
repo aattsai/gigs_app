@@ -3,51 +3,53 @@
     <div class="row">
       <div class="eight wide column">
         <h3 class="ui header">
-          <%= full_name(current_user.full_name) %>
+          <%= performer.full_name %>
         </h3>
         <p>
-          <b>Joined: </b><%= current_user.created_at.strftime("%B %Y") %>
+          <b>Joined: </b><%= performer.created_at.strftime("%B %Y") %>
         </p>
         <p>
           <b>Instruments: </b>
-          <% if current_user.instruments %>
-            <%= current_user.instruments %>
+          <% if performer.instruments %>
+            <%= performer.instruments %>
           <% else %>
             Bananas
           <% end %>
         </p>
         <p>
           <b>Affiliates: </b>
-          <% if current_user.affiliates %>
-            <%= current_user.affiliates %>
+          <% if performer.affiliates %>
+            <%= performer.affiliates %>
           <% else %>
             tell us a little bit about yourself, we are curious!
           <% end %>
         </p>
         <p>
           <b>Bio: </b>
-          <% if current_user.bio %>
-            <%= current_user.bio %>
+          <% if performer.bio.length > 1 %>
+            <%= performer.bio %>
           <% else %>
             tell us a little bit about yourself, we are curious!
           <% end %>
         </p>
-        <% if current_user.rating %>
-          <div class="ui rating view" data-rating=<%= current_user.rating.to_s %> data-max-rating="5"></div>
+        <% if performer.rating %>
+          <div class="ui rating view" data-rating=<%= performer.rating.to_s %> data-max-rating="5"></div>
         <% else %>
           <div class="ui rating view" data-rating="0" data-max-rating="5"></div>
         <% end %>
       </div>
       <div class="six wide right floated center aligned column">
         <div class='middle aligned container'>
-          <%= image_tag(current_user.avatar.url, width: '50%', height: '50%') %>
+          <%= image_tag(performer.avatar.url, width: '50%', height: '50%') %>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="center aligned column">
-        <%= link_to "Update Profile", edit_performer_path(current_user.id), class:"ui basic orange medium button" %>
+    <% if performer.id == current_user.id && current_user.class == performer.class %>
+      <div class="row">
+        <div class="center aligned column">
+          <%= link_to "Update Profile", edit_performer_path(performer.id), class:"ui basic orange medium button" %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

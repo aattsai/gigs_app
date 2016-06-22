@@ -24,6 +24,7 @@ class PerformersController < ApplicationController
   end
 
   def show
+    @performer = Performer.find(params[:id])
   end
 
   def update

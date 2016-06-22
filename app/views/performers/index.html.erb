@@ -3,13 +3,12 @@
     <div class="ten wide column">
       <% @performers.each do |performer| %>
       <div class="row">
-        <h4><%= full_name(performer.full_name) %>
-        </h4>
+        <h4><%= link_to full_name(performer.full_name), performer_path(performer.id)%></h4>
         <p><%= performer.instruments %></p>
         <p><%= performer.location %></p>
         <p><%= performer.affiliates %></p>
-        <% if current_user.rating %>
-          <div class="ui rating view" data-rating=<%= current_user.rating.to_s %> data-max-rating="5"></div>
+        <% if performer.rating %>
+          <div class="ui rating view" data-rating=<%= performer.rating.to_s %> data-max-rating="5"></div>
         <% else %>
           <div class="ui rating view" data-rating="0" data-max-rating="5"></div>
         <% end %>
