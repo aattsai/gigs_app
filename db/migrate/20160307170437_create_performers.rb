@@ -8,6 +8,7 @@ class CreatePerformers < ActiveRecord::Migration
       t.string :instruments
       t.string :location
       t.string :degree
+      t.text :youtube
       t.text :bio
       t.float :rating
 
