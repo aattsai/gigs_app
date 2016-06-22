@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(version: 20160621225015) do
   end
 
   create_table "bands", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name",         null: false
+    t.integer  "performer_id", null: false
     t.text     "bio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -71,8 +72,10 @@ ActiveRecord::Schema.define(version: 20160621225015) do
     t.string   "full_name",       null: false
     t.string   "affiliates"
     t.string   "instruments"
-    t.text     "bio"
     t.string   "location"
+    t.string   "degree"
+    t.text     "youtube"
+    t.text     "bio"
     t.float    "rating"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -93,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160621225015) do
     t.string   "email",           null: false
     t.string   "password_digest", null: false
     t.string   "full_name",       null: false
+    t.string   "organization"
     t.text     "bio"
     t.float    "rating"
     t.datetime "created_at",      null: false

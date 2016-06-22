@@ -6,8 +6,10 @@ class CreatePerformers < ActiveRecord::Migration
       t.string :full_name, null: false
       t.string :affiliates
       t.string :instruments
-      t.text :bio
       t.string :location
+      t.string :degree
+      t.text :youtube
+      t.text :bio
       t.float :rating
 
       t.timestamps null:false

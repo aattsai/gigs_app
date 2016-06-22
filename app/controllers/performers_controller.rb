@@ -25,7 +25,19 @@ class PerformersController < ApplicationController
 
   def show
     @performer = Performer.find(params[:id])
+    @youtube_id = get_youtube_id
   end
+
+  # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
+  def get_youtube_id
+    if @performer.youtube[/youtu\.be\/([^\?]*)/]
+      youtube = $1
+    else
+      youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+      youtube = $5
+    end
+  end
+
 
   def update
     performer = Performer.find(params[:id])
@@ -38,7 +50,7 @@ class PerformersController < ApplicationController
 
   private
   def performer_params
-    params.require(:performer).permit(:email, :location, :full_name, :password, :affiliates, :instruments, :bio, :avatar)
+    params.require(:performer).permit(:email, :location, :full_name, :password, :affiliates, :instruments, :bio, :degree, :youtube, :avatar)
   end
 
 end
