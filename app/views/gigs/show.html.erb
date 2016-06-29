@@ -1,11 +1,11 @@
-<div class="ui vertical stripe segment">
+<div class="ui vertical stripe segment main">
   <div class="ui left aligned grid container performer-grid">
-    <div class="ten wide column">
-      <div class="row">
-        <h1><%= @gig.title %></h1>
-        <h2><%= @gig.venue %></h2>
-        <p><%= @gig.address %>, <%= @gig.city %>, <%= @gig.state %></p>
-        <h3>$<%= number_with_precision(@gig.price, :precision => 2) %></h3>
+    <div class="eight wide column">
+      <div class="row profile-basics">
+        <h2><%= @gig.title %></h2>
+        <p><span>venue: </span><%= @gig.venue %></p>
+        <p><span>address: </span><%= @gig.address %>, <%= @gig.city %>, <%= @gig.state %></p>
+        <p><span>compensation</span> $<%= number_with_precision(@gig.price, :precision => 2) %></p>
         <p><%= simple_format(@gig.description) %></p>
       </div>
       <% if current_user.class == Performer %>
@@ -18,9 +18,6 @@
           <% end %>
       <% end %>
       </div>
-    </div>
-    <div class="four wide coltrane column">
-      <h4>Ads Go HERE</h4>
     </div>
   </div>
 </div>

@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.ui.vertical.segment.main {
+  min-height: 60%;
+}
+
 .avatar_image {
   position: relative;
   width: 200px;
@@ -12,6 +16,11 @@
   font-weight: lighter;
   font-size: 0.8em;
   color: gray;
+}
+
+.profile-edit-column {
+  margin: auto;
+  max-width: 450px;
 }
 
 .main-text-font {
