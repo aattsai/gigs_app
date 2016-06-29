@@ -1,6 +1,6 @@
 <div class="ui vertical stripe segment main">
   <div class="ui left aligned grid container performer-grid">
-    <div class="eight wide column">
+    <div class="twelve wide column">
       <div class="row profile-basics">
         <h2><%= @gig.title %></h2>
         <p><span>venue: </span><%= @gig.venue %></p>
@@ -11,12 +11,12 @@
       <% if current_user.class == Performer %>
         <%= button_to 'Create conversation', conversation_create_path,  method: :post, params: { user_id: @gig.user.id }, class: "ui secondary submit button" %>
       <% else %>
-        <div class="row">
-          <% if user && @gig.user_id == current_user.id %>
-            <%= link_to 'Edit', edit_gig_path(@gig.id), class: "ui small basic gray button" %>
-            <%= link_to 'Delete', '/gigs/' + @gig.id.to_s, method: 'delete', class: "ui small basic red button" %>
-          <% end %>
-      <% end %>
+      <div class="row">
+        <% if user && @gig.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_gig_path(@gig.id), class: "ui small basic gray button" %>
+          <%= link_to 'Delete', '/gigs/' + @gig.id.to_s, method: 'delete', class: "ui small basic red button" %>
+        <% end %>
+    <% end %>
       </div>
     </div>
   </div>
