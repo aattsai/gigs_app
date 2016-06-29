@@ -1,11 +1,11 @@
-<div class="ui vertical stripe segment">
+<div class="ui vertical stripe segment main">
   <div class="ui left aligned grid container performer-grid">
-    <div class="ten wide column">
+    <div class="computer only eight wide column">
       <% @gigs.each do |gig| %>
-      <div class="row">
+      <div class="row profile-basics">
         <h4><%= link_to gig.title, gig_path(gig.id) %></h4>
-        <p><%= gig.venue %>, <%= gig.city %>, <%= gig.state %></p>
-        <p>$<%= gig.price %></p>
+        <p><span>venue: </span><%= gig.venue %>, <%= gig.city %>, <%= gig.state %></p>
+        <p><span>compensation: </span>$<%= gig.price %></p>
         <% if user && gig.user_id == current_user.id %>
           <%= link_to 'Edit', edit_gig_path(gig.id) %>
           <%= link_to 'Delete', '/gigs/' + gig.id.to_s, method: 'delete' %>
@@ -14,7 +14,21 @@
       </div>
       <% end %>
     </div>
-     <div class="four wide olive column">
+    <div class="mobile only sixteen wide column">
+      <% @gigs.each do |gig| %>
+      <div class="row profile-basics">
+        <h4><%= link_to gig.title, gig_path(gig.id) %></h4>
+        <p><span>venue: </span><%= gig.venue %>, <%= gig.city %>, <%= gig.state %></p>
+        <p><span>compensation: </span>$<%= gig.price %></p>
+        <% if user && gig.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_gig_path(gig.id) %>
+          <%= link_to 'Delete', '/gigs/' + gig.id.to_s, method: 'delete' %>
+        <% end %>
+      <div class="ui section divider"></div>
+      </div>
+      <% end %>
+    </div>
+    <div class="computer only four wide olive column">
       <h4>Ads Go HERE</h4>
     </div>
   </div>
