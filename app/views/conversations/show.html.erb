@@ -1,5 +1,5 @@
-<div class="ui middle aligned segment center aligned">
-  <div class="column">
+<div class="ui middle aligned segment center aligned main">
+  <div class="profile-edit-column">
     <div id="chat">
       <% if @messages.any? %>
         <%= render partial: 'messages/_message', locals: {messages: @messages} %>
