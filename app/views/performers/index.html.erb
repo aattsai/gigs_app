@@ -1,8 +1,7 @@
-<div class="ui vertical stripe segment">
+<div class="ui vertical stripe segment main">
   <div class="ui left aligned grid container performer-grid">
-    <div class="ten wide column">
+    <div class="ten wide computer only column">
       <% @performers.each do |performer| %>
-      <div class="row">
         <h4><%= link_to full_name(performer.full_name), performer_path(performer.id)%></h4>
         <p><%= performer.instruments %></p>
         <p><%= performer.location %></p>
@@ -14,10 +13,25 @@
         <% end %>
         <p><%= performer.bio %></p>
         <div class="ui section divider"></div>
-      </div>
       <% end %>
     </div>
-    <div class="four wide olive column">
+
+    <div class="mobile only sixteen wide column">
+      <% @performers.each do |performer| %>
+      <h4><%= link_to full_name(performer.full_name), performer_path(performer.id)%></h4>
+      <p><%= performer.instruments %></p>
+      <p><%= performer.location %></p>
+      <p><%= performer.affiliates %></p>
+      <% if performer.rating %>
+        <div class="ui rating view" data-rating=<%= performer.rating.to_s %> data-max-rating="5"></div>
+      <% else %>
+        <div class="ui rating view" data-rating="0" data-max-rating="5"></div>
+      <% end %>
+      <p><%= performer.bio %></p>
+      <div class="ui section divider"></div>
+      <% end %>
+    </div>
+    <div class="computer only four wide olive column">
       <h4>Ads Go HERE</h4>
     </div>
   </div>

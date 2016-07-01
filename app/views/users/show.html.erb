@@ -1,7 +1,13 @@
-<div class="ui vertical stripe segment">
+<div class="ui vertical stripe segment main">
   <div class="ui middle aligned stackable grid container">
     <div class="row">
+      <div class="six wide right floated center aligned column">
+        <div class='middle aligned container'>
+          <%= image_tag(current_user.avatar.url, width: '50%', height: '50%') %>
+        </div>
+      </div>
       <div class="eight wide column">
+
         <h3 class="ui header">
           <%= current_user.full_name %>
         </h3>
@@ -29,11 +35,6 @@
           created <%= time_ago_in_words(gig.created_at) %> ago</p>
         <% end %>
       </div>
-      </div>
-      <div class="six wide right floated center aligned column">
-        <div class='middle aligned container'>
-          <%= image_tag(current_user.avatar.url, width: '50%', height: '50%') %>
-        </div>
       </div>
     </div>
     <div class="row">

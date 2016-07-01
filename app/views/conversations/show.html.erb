@@ -1,11 +1,11 @@
-<div class="ui middle aligned segment center aligned">
-  <div class="column">
+<div class="ui middle aligned segment center aligned main">
+  <div class="profile-edit-column">
     <div id="chat">
       <% if @messages.any? %>
         <%= render partial: 'messages/_message', locals: {messages: @messages} %>
       <% end %>
     </div>
-  <h1>Send a message to: <%= @conversation.user.full_name %></h1>
+  <h2>Send a message to: <%= @conversation.user.full_name %></h2>
       <%= form_for([@conversation, Message.new], :remote => true, :html => {id: "conversation_form_#{@conversation.id}", class: 'ui reply form'}) do |f| %>
         <div class="content">
           <%= f.text_area :content, class: 'content form-control', "data-cid" => @conversation.id, :required => true %>

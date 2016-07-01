@@ -1,9 +1,28 @@
-p {
-  line-height: 0.3em;
+.profile-basics {
+  position: relative;
 }
-.logo {
 
+.main {
+  min-height: 60%;
 }
+
+.avatar_image {
+  position: relative;
+  width: 200px;
+  height: auto;
+}
+
+.profile-basics span {
+  font-weight: lighter;
+  font-size: 0.8em;
+  color: gray;
+}
+
+.profile-edit-column {
+  margin: auto;
+  max-width: 450px;
+}
+
 .main-text-font {
   font-family: 'Montserrat', sans-serif !important;
 }
@@ -64,8 +83,11 @@ p {
   .ui.fixed.menu {
     display: none !important;
   }
-  .secondary.pointing.menu .item,
-  .secondary.pointing.menu .menu,
+  .column {
+    margin: 0 auto;
+    width: 100%;
+  }
+
   .secondary.pointing.menu .right.item {
     display: none;
   }
@@ -83,6 +105,10 @@ p {
     margin-top: 0.5em;
     font-size: 1.5em;
   }
+  .youtube {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .second {
@@ -91,7 +117,6 @@ p {
 }
 
 .column {
-  max-width: 450px;
   margin: 0 auto;
 }
 
@@ -111,3 +136,4 @@ p {
 .usertype-box {
   margin: 2rem !important;
 }
+
