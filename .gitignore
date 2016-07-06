@@ -13,3 +13,4 @@
 /tmp
 .byebug_history
 /config/secrets.yml
+/config/private_pub.yml
