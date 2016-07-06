@@ -54,7 +54,11 @@
       </div>
       <div class="sixteen wide column">
         <h4>Performances: </h4>
-        <iframe width="420" height="315" class="youtube" src='https://www.youtube.com/embed/<%= @youtube_id %>' frameborder="0" allowfullscreen></iframe>
+        <% if @youtube_id %>
+          <iframe width="420" height="315" class="youtube" src='https://www.youtube.com/embed/<%= @youtube_id %>' frameborder="0" allowfullscreen></iframe>
+        <% else %>
+          <p>This person does not have any performances posted</p>
+        <% end %>
       </div>
     </div>
   </div>
