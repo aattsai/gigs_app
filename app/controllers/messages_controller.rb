@@ -24,11 +24,12 @@ class MessagesController < ApplicationController
         format.js 
       end
     end
-    if @message.save
-      render partial: 'message', locals: {messages: @messages}
-    else
-      render :show
-    end
+    # if @message.save
+    #   render partial: 'message', locals: {messages: @messages}
+    # else
+    #   render :show
+    # end
   end
+  
 
 end
