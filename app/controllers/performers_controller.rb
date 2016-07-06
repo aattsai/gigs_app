@@ -33,7 +33,7 @@ class PerformersController < ApplicationController
     if @performer.youtube[/youtu\.be\/([^\?]*)/]
       youtube = $1
     else
-      youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+      @performer.youtube[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
       youtube = $5
     end
   end
