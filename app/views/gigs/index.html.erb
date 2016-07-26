@@ -4,6 +4,7 @@
       <% @gigs.each do |gig| %>
       <div class="row profile-basics">
         <h4><%= link_to gig.title, gig_path(gig.id) %></h4>
+        <p><span>date: </span><%= gig.date %></p>
         <p><span>venue: </span><%= gig.venue %>, <%= gig.city %>, <%= gig.state %></p>
         <p><span>compensation: </span>$<%= gig.price %></p>
         <% if user && gig.user_id == current_user.id %>
@@ -18,6 +19,7 @@
       <% @gigs.each do |gig| %>
       <div class="row profile-basics">
         <h4><%= link_to gig.title, gig_path(gig.id) %></h4>
+        <p><span>date: </span><%= gig.date %></p>
         <p><span>venue: </span><%= gig.venue %>, <%= gig.city %>, <%= gig.state %></p>
         <p><span>compensation: </span>$<%= gig.price %></p>
         <% if user && gig.user_id == current_user.id %>
