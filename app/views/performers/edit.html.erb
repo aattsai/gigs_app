@@ -6,10 +6,10 @@
       </div>
     </h2>
     <%= form_for @performer, class:"ui large form" do |f| %>
-  <div class="photo-column">
-    <%= image_tag(@performer.avatar.url, width: '50%', height: '50%') %>
-    <%= f.file_field :avatar %>
-  </div>
+      <div class="photo-column">
+        <%= image_tag(@performer.avatar.url, width: '50%', height: '50%') %>
+        <%= f.file_field :avatar %>
+      </div>
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui fluid left icon input">
@@ -26,7 +26,7 @@
         <div class="field">
           <div class="ui fluid left icon input">
             <i class="lock icon"></i>
-            <%= f.password_field :password, value: @performer.password %>
+            <%= f.password_field :password, value: @performer.password, :required => true %>
           </div>
         </div>
         <div class="field">
