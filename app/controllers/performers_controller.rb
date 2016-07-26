@@ -40,8 +40,8 @@ class PerformersController < ApplicationController
 
 
   def update
-    performer = Performer.find(params[:id])
-    if performer.update_attributes(performer_params)
+    @performer = Performer.find(params[:id])
+    if @performer.update_attributes(performer_params)
       redirect_to performer_path(current_user.id)
     else
       render :edit
