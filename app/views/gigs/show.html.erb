@@ -4,6 +4,7 @@
       <div class="row profile-basics">
         <h2><%= @gig.title %></h2>
         <p><span>date: </span><%= @gig.date %></p>
+        <p><span>time: </span><%= @gig.time.strftime("%I:%M %p") %></p>
         <p><span>venue: </span><%= @gig.venue %></p>
         <p><span>address: </span><%= @gig.address %>, <%= @gig.city %>, <%= @gig.state %></p>
         <p><span>compensation</span> $<%= number_with_precision(@gig.price, :precision => 2) %></p>
